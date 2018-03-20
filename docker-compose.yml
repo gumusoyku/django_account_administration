@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    env_file:
+      - .env
+    container_name: account_administration_postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+
+  account_administration:
+    build: ./account_administration
+    container_name: account_administration
+    env_file:
+      - .env
+    command: "tail -f /dev/null"
+    volumes:
+      - ./account_administration:/web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    links:
+      - db:postgres
+    environment:
+      - DJANGO_SETTINGS_MODULE=account_administration.settings.local
