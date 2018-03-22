@@ -1,21 +1,9 @@
 {% extends "admin/login.html" %}
 {%  load static %}
-<style>
-    /* css will be removed here once the static files seperated */
-    .login .submit-row {
-    clear: both;
-    margin: 0;
-    border: none;
-    background: none;
-    text-align: center;
-    padding: 20px 0 0 0;
-}
-</style>
-{% block content %}
 
+{% block content %}
     {{ block.super }}
     <div class="submit-row" >
-    <!-- image will be added later, when the static files seperated -->
         <img src="{% static '/admin/img/google-logo.png' %}"
              width="40px" height="40px">
     </div>
