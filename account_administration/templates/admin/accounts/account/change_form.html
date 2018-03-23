@@ -1,0 +1,11 @@
+{% extends "admin/change_form.html" %}
+
+{% block submit_buttons_bottom %}
+    {% if not can_edit %}
+        <div class="submit-row" style="background-color: #fffde6; text-align: left">
+            <p>You don't have permission to edit this entry.</p>
+        </div>
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
