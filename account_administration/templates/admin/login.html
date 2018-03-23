@@ -1,0 +1,14 @@
+{% extends "admin/login.html" %}
+{%  load static %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="submit-row" >
+        <img src="{% static '/admin/img/google-logo.png' %}"
+             width="40px" height="40px">
+    </div>
+    <div class="submit-row" >
+        You can also <br>
+        <a href="{% url "social:begin" "google-oauth2" %}" style="padding-top: 30px">login with Google</a>
+    </div>
+{% endblock %}
