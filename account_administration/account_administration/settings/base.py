@@ -86,6 +86,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.create_user',
     'social_core.pipeline.social_auth.associate_user',
     'social_auth.pipeline.admin_auth.set_staff_status_true',
+    'social_auth.pipeline.permissions.set_permissions',
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
     'social_core.pipeline.debug.debug',
