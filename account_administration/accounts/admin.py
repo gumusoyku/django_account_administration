@@ -22,6 +22,12 @@ class AccountAdmin(admin.ModelAdmin):
     readonly_fields = ("created_by",)
     actions = [delete_selected]
 
+    def has_delete_permission(self, request, obj=None):
+        if obj and obj.created_by != request.user and not request.user.is_superuser:
+            return False
+        else:
+            return True
+
     def save_model(self, request, obj, form, change):
         obj.created_by = request.user
         super(AccountAdmin, self).save_model(request=request, obj=obj, form=form, change=change)
