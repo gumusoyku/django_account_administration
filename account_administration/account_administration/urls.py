@@ -16,14 +16,14 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.conf.urls import url, include
-from django.urls import reverse
+from django.urls import reverse_lazy
 from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^oauth/', include('social_django.urls', namespace='social_django:social')),
-    url(r'^$', RedirectView.as_view(url=reverse('admin:index'))),
+    url(r'^$', RedirectView.as_view(url=reverse_lazy('admin:index'))),
 ]
 
 if settings.DEBUG:
